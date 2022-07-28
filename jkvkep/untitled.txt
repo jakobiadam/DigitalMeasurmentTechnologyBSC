@@ -1,0 +1,13 @@
+import cv2
+
+cam = '/dev/video1'
+
+try:
+    d = None
+    d = cv2.VideoCapture(cam)
+    is_capturing, frame = d.read()
+except Exception as e:
+    print ("EE", e)
+finally:
+    if d and d.isOpened():
+        d.release()
